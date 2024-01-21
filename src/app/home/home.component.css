@@ -1,0 +1,7 @@
+#btn_new{
+    position: fixed;
+    right:  100px;
+    bottom: 50px;
+    background-color: green;
+    color: white;
+}

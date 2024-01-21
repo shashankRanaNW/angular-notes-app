@@ -1,0 +1,38 @@
+<main class="form-signin">
+    <form #loginForm="ngForm" (ngSubmit)="onSubmit()">
+      <div class="text-center">
+        <!-- <img class="mb-4 mx-auto" src="../../assets/BITS_Pilani-Logo.svg.png" alt="" width="150px" height="150px"> -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="150"px height="150px" fill="black" class="bi bi-list-task mb-3 mx-auto"
+                viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M2 2.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5V3a.5.5 0 0 0-.5-.5H2zM3 3H2v1h1V3z" />
+                <path
+                    d="M5 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM5.5 7a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zm0 4a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9z" />
+                <path fill-rule="evenodd"
+                    d="M1.5 7a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5V7zM2 7h1v1H2V7zm0 3.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5H2zm1 .5H2v1h1v-1z" />
+            </svg>
+      </div>
+      <h1 class="h3 mb-3 ">Please sign in</h1>
+  
+      <div class="form-floating">
+        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" [(ngModel)]="user.email" name="email" #email="ngModel">
+        <label for="floatingInput">Email address</label>
+      </div>
+      <div class="form-floating">
+        <input type="password" class="form-control" id="floatingPassword" placeholder="Password"
+        [(ngModel)]="user.password" name="password" #password="ngModel">
+        <label for="floatingPassword">Password</label>
+      </div>
+  
+      <div class="form-check checkbox mb-3">
+        <input type="checkbox" class="form-check-input" id="rememberMe" name="rememberMe" value="remember-me"
+          [(ngModel)]="rememberMe">
+        <label class="form-check-label" for="rememberMe">Remember me</label>
+      </div>
+      
+      <p class="text-muted">New here? <a href="/sign_up">Sign Up</a> </p>
+      <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+      <p class="mt-5 mb-3 text-muted">&copy; 2023</p>
+    </form>
+  </main>
+  

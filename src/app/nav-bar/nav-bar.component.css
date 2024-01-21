@@ -1,0 +1,45 @@
+.text-decoration-none {
+    text-decoration-style: none;
+}
+
+.email {
+    font-size: medium;
+}
+
+.user_auth {
+    position: relative;
+}
+
+.custom_tooltip {
+    display: none;
+    width: max-content;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #222;
+    color: white;
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 4px;
+    font-size: 90%;
+    z-index: 100;
+    /* Increase the z-index to make it appear above other elements */
+}
+
+.popover-content {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+}
+
+.profile-pic {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.email {
+    font-weight: bold;
+    margin-bottom: 5px;
+}

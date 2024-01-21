@@ -1,0 +1,9 @@
+.input-group-text{
+    width: 30px;
+    justify-content: center;
+}
+
+.content{
+    width: 40%;
+    min-width: 350px;
+}

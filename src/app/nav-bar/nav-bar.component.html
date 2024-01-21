@@ -1,0 +1,74 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-5">
+    <div class="container">
+        <a class="navbar-brand fw-bold me-auto" routerLink="home">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="black" class="bi bi-list-task"
+                viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M2 2.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5V3a.5.5 0 0 0-.5-.5H2zM3 3H2v1h1V3z" />
+                <path
+                    d="M5 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM5.5 7a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zm0 4a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9z" />
+                <path fill-rule="evenodd"
+                    d="M1.5 7a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5V7zM2 7h1v1H2V7zm0 3.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5H2zm1 .5H2v1h1v-1z" />
+            </svg>
+            <span class="m-1 ms-3">Notes</span></a>
+
+        <div class="d-flex">
+            <div class="form-group me-2" [hidden]="url_rel !='/home' || user==null ">
+                <input type="text" class="form-control" [formControl]="myControl" [matAutocomplete]="auto"
+                    placeholder="Search" (keydown.enter)="handleEnterKey()">
+                <mat-autocomplete #auto="matAutocomplete">
+                    <mat-option *ngFor="let option of filteredOptions | async" [value]="option.title"
+                        (click)="select(option.id)">
+                        {{ option.title }}
+                    </mat-option>
+                </mat-autocomplete>
+            </div>
+            <div [hidden]=" user!=null || url_rel !='/home' " class="user_auth">
+                <a routerLink="/login" #login>
+                    <button type="button" class="btn btn-success me-2">Login</button>
+                </a>
+                <!-- <div #tooltipElement role="tooltip" class="custom_tooltip">
+                    Tooltip in here
+                </div> -->
+                <a routerLink="/sign_up" #sign_up>
+                    <button type="button" class="btn btn-warning">Sign-up</button>
+                </a>
+            </div>
+            <a [hidden]="user==null" class="px-2 ">
+
+                <button type="button" class="btn btn-primary" [matMenuTriggerFor]="popoverMenu">
+                    <span class="me-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-person-circle" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                            <path fill-rule="evenodd"
+                                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                        </svg>
+                    </span>
+                    <span>{{user== null ? "email" : user.email}}</span>
+                </button>
+
+                <!-- <div class="d-flex" [matMenuTriggerFor]="popoverMenu">
+                    <span class="me-2 align-self-center email text-decoration-none">{{ user== null ? "email" : user.email }}</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor"
+                        class="bi bi-person-circle" viewBox="0 0 16 16">
+                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                        <path fill-rule="evenodd"
+                            d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                    </svg>
+                </div> -->
+
+                <mat-menu #popoverMenu="matMenu">
+                    <div class="popover-content">
+                        <img class="profile-pic" src="/assets/BITS_Pilani-Logo.png" alt="Profile Picture">
+                        <div class="user-info">
+                            <p class="email">{{ user?.email }}</p>
+                            <button mat-button (click)="signOut()">Log Out</button>
+                            <button mat-button routerLink="/reset_password">Reset Password</button>
+                        </div>
+                    </div>
+                </mat-menu>
+            </a>
+        </div>
+    </div>
+</nav>
